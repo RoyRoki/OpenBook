@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/login.css">
+<link rel="shortcut icon" href="photo/logo.png" type="image/x-icon" />
+<title>Open Book(Login)</title>
+</head>
+<body>
+ <header>
+ <div class="logoname">
+        <img src="photo/logo.png" alt="Company Logo">
+        <h1>Open Book</h1>
+    </div>    
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.jsp">Account</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+<div class="main">
+    <div class="card">
+
+        <form action="loginServlet" method="post" class="login-form"> 
+            <label for="username">UserName:</label>
+            <input type="text" id="username" name="username" placeholder="Your Name..." required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password..." required><br>
+            <button type="submit" class="submit">Login</button> 
+        </form>
+        
+        <%-- Display error message if login fails --%>
+        <% String error = request.getParameter("error");
+            if (error != null && error.equals("1")) { %>
+                <p style="color: red;">Invalid username or password</p>
+                 <p style="color: red;">Please try again.</p>
+        <% } %>
+        <div class="back"> <a href="index.html"><img src="photo/back.png" alt="back"></a> </div>
+      </div>
+</div>
+
+  <footer class="footer">
+        <p>&copy; 2024 Open Book.All rights reserved.</p>
+        <p>Contact us at: <a href="mailto:support@openbook.com">rokiroy2207@gmail.com</a></p>
+        <p>Support at: <a href="mailto:support@openbook.com">Open Book Support</a></p>
+        <p>Open Book : <a href="mailto:support@openbook.com">OpenBook</a></p>
+        <p>24X7 service: <a href="mailto:support@openbook.com">support@openbook.com</a></p>
+        <p>Email at: <a href="mailto:support@openbook.com">openbook@gmail.com</a></p>
+    </footer>
+</body>
+</html>
